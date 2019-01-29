@@ -18,7 +18,7 @@ def init():
     print("")
     print ('*' * 60)
     print (' The Horus Localization System')
-    print (" Mobile and Sensor Networks course - University of Oxford")
+    print (" Sensor Networks Course - University of Oxford")
     print ('*' * 60)
     print ("")
     print ("")
@@ -202,7 +202,7 @@ def plot_histogram(train_db, location, n_ap, n_samples):
 
         # Plot the RSS histogram
         plt.figure()
-        n_bins = round(np.sqrt(len(dat)))
+        n_bins = int(round(np.sqrt(len(dat))))
         plt.hist(dat, bins=n_bins, normed=True, alpha=0.6, color='g')
 
         # Approximate the histogram with a Gaussian distribution
@@ -321,7 +321,8 @@ nSamples = 60
 # ---- Configure Parameters -----
 # Select Dataset (set1 or set2)
 parser = argparse.ArgumentParser()
-parser.add_argument('-s','--data_set', choices={"set1", "set2"}, type=str, required=True)
+parser.add_argument('-s','--data_set', choices={"set1", "set2"}, type=str, 
+    default='set1')
 args = parser.parse_args()
 data_set = args.data_set
 
